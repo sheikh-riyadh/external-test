@@ -6,11 +6,12 @@
   --background: 241, 245, 249;
   --border: 226, 232, 240;
   --card: 255, 255, 255;
-  --copy-primary: 23, 23, 23;
+  --copy-primary: 100, 116, 139;
   --copy-secondary: 100, 116, 139;
   --cta: 139, 92, 246;
   --cta-active: 124, 58, 237;
   --cta-text: 255, 255, 255;
+  --input: 46, 58, 71;
   background: rgba(var(--background));
   color: rgba(var(--copy-secondary));
 }
@@ -23,6 +24,20 @@
   --cta: 99, 102, 241;
   --cta-active: 79, 70, 229;
   --cta-text: 255, 255, 255;
+  --input: 46, 58, 71;
   background: rgba(var(--background));
   color: rgba(var(--copy-secondary));
+}
+
+.spin {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

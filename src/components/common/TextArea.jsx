@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import PropTypes from "prop-types";
 import cn from "../../utils/cn";
 
-const Select = forwardRef(({ className, label = "", ...rest }, ref) => {
+const TextArea = forwardRef(({ className, label = "", ...rest }, ref) => {
   return (
     <div className="flex flex-col gap-1">
       {label && (
@@ -10,28 +10,22 @@ const Select = forwardRef(({ className, label = "", ...rest }, ref) => {
           {label} {rest?.required && <span>*</span>}
         </label>
       )}
-      <select
+      <textarea
         className={cn(
-          `focus:outline-none bg-background w-full py-2 px-2 rounded-sm`,
+          `focus:outline-none bg-background w-full p-2 rounded-sm`,
           className
         )}
         {...rest}
         ref={ref}
-      >
-        <option disabled value="" selected>Select</option>
-        {rest?.options?.map((option) => (
-          <option value={option} key={option}>{option}</option>
-        ))}
-      </select>
+      />
     </div>
   );
 });
-Select.displayName = "Select";
+TextArea.displayName = "TextArea";
 
-Select.propTypes = {
+TextArea.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
   label: PropTypes.string,
 };
 
-export default Select;
+export default TextArea;

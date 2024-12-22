@@ -11,21 +11,21 @@ const Input = forwardRef(
       if (changeType === "text") {
         setChangeType("password");
       } else {
-        setChangeType("text");
+        setChangeType(type);
       }
     };
 
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 overflow-hidden">
         {label && (
-          <label className="flex items-center gap-1 py-2 font-medium text-sm text-white">
-            {label} {rest?.required && <span className={"text-danger"}>*</span>}
+          <label className="flex items-center gap-1 py-2 font-medium text-sm text-primary">
+            {label} {rest?.required && <span>*</span>}
           </label>
         )}
-        <div className="flex items-center justify-between relative w-full">
+        <div className="flex items-center justify-between relative w-full overflow-hidden">
           <input
             className={cn(
-              `focus:outline-none bg-gray-100 w-full p-2 rounded-md`,
+              `focus:outline-none bg-background w-full p-2 rounded-sm`,
               className
             )}
             {...rest}

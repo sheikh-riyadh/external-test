@@ -8,8 +8,9 @@ export default {
     extend: {
       colors:{
         background:"rgba(var(--background))",
-        border:"rgba(var(--border))",
+        "border-primary":"rgba(var(--border))",
         card:"rgba(var(--card))",
+        input:"rgba(var(--input))",
         "primary":"rgba(var(--copy-primary))",
         "secondary":"rgba(var(--copy-secondary))",
         "cta-text":"rgba(var(--cta-text))",
