@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="w-full bg-card sticky top-0 flex items-center justify-between lg:justify-end p-3.5  z-30 border-b border-border-primary">
       <div className="cursor-pointer lg:hidden" onClick={() => setIsOpen((prev) => !prev)}>
-        <FaBars />
+        <FaBars className="text-2xl text-primary" />
       </div>
       <nav>
         <ul className="flex items-center gap-5">

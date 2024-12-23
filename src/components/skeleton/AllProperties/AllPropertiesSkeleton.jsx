@@ -11,7 +11,7 @@ const AllPropertiesSkeleton = () => {
       </div>
 
       {/* Properties Section */}
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid lg:grid-cols-3 gap-5">
         {Array(6)
           .fill(0)
           .map((_, index) => (

@@ -67,9 +67,9 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
             })}
           </div>
         </div>
-        <div className="px-4 py-5">
+        <div className="px-4 py-5 pb-7">
           <div>
-            <div className="flex gap-4 pb-10">
+            <div className="flex gap-4 pb-5">
               <div>
                 <img
                   className="w-12 h-12 rounded-full"
