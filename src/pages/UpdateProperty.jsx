@@ -13,15 +13,12 @@ import PropertyImages from "../components/pages/AddProperty/PropertyImages/Prope
 import AdditionalInfo from "../components/pages/AddProperty/AdditionalInfo/AdditionalInfo";
 import SubmitButton from "../components/common/SubmitButton";
 import toast from "react-hot-toast";
-import { smoothScroll } from "../utils/smoothScroll";
+import Location from "../components/pages/AddProperty/Location/Location";
 
 const UpdateProperty = () => {
-
-  smoothScroll();
-
-
   /* Property image state */
   const [propertyImages, setPropertyImages] = useState([]);
+  const [locationImage, setLocationImage] = useState("");
 
   /* React hook form */
   const { register, handleSubmit, watch, setValue } = useForm({});
@@ -41,6 +38,7 @@ const UpdateProperty = () => {
     const updatePropertyData = {
       ...data,
       propertyImages,
+      location: locationImage,
     };
 
     try {
@@ -51,7 +49,7 @@ const UpdateProperty = () => {
 
       if (res?.data?.acknowledged) {
         toast.success("Property updated successfully", { id: "success" });
-        navigate("/view-properties");
+        navigate("/all-properties");
       }
     } catch (error) {
       toast.error("Something went wrong", { id: error });
@@ -69,7 +67,10 @@ const UpdateProperty = () => {
       }
     }
     setPropertyImages(updateData?.propertyImages);
+    setLocationImage(updateData?.location)
   }, [updateData, setValue]);
+
+  console.log("Hello");
 
   return (
     <div>
@@ -87,6 +88,10 @@ const UpdateProperty = () => {
             setPropertyImages={setPropertyImages}
           />
           <AdditionalInfo register={register} />
+          <Location
+            locationImage={locationImage}
+            setLocationImage={setLocationImage}
+          />
           <div className="flex flex-col items-end justify-end">
             <SubmitButton isLoading={isLoading} className={"w-40"}>
               Update

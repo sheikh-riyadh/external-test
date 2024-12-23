@@ -6,7 +6,7 @@ const PropertyDetails = ({ register }) => {
       <span className="font-bold">Property Details</span>
       <div className="grid lg:grid-cols-2 gap-5">
         <Input
-          {...register("lenderName")}
+          {...register("units")}
           label={"Number of Units"}
           placeholder="Market value of the property"
           required

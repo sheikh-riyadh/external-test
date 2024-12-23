@@ -1,4 +1,4 @@
-const ViewPropertiesSkeleton = () => {
+const AllPropertiesSkeleton = () => {
   return (
     <div className="flex flex-col gap-10 animate-pulse">
       {/* Header Section */}
@@ -25,4 +25,4 @@ const ViewPropertiesSkeleton = () => {
   );
 };
 
-export default ViewPropertiesSkeleton;
+export default AllPropertiesSkeleton;

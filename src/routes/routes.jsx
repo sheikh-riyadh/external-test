@@ -2,10 +2,12 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../layout/MainLayout";
 import Overview from "../pages/Overview";
 import AddProperty from "../pages/AddProperty";
-import ViewProperties from "../pages/ViewProperties";
 import CheckIns from "../pages/CheckIns";
 import Checkouts from "../pages/Checkouts";
 import UpdateProperty from "../pages/UpdateProperty";
+import AllProperties from "../pages/AllProperties";
+import DetailsProperty from "../pages/DetailsProperty";
+
 
 const routes = createBrowserRouter([
   {
@@ -29,8 +31,12 @@ const routes = createBrowserRouter([
         element: <UpdateProperty />,
       },
       {
-        path: "/view-properties",
-        element: <ViewProperties />,
+        path: "/all-properties",
+        element: <AllProperties />,
+      },
+      {
+        path: "/property-details",
+        element: <DetailsProperty />,
       },
       {
         path: "/check-ins",

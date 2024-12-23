@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Button from "../components/common/Button";
 import Input from "../components/common/Input";
-import PropertyCard from "../components/pages/ViewProperties/PropertyCard";
-import ViewPropertiesSkeleton from "../components/skeleton/ViewProperties/ViewPropertiesSkeleton";
 import { useGetPropertiesQuery } from "../store/services/propertyApi/propertyApi";
 import no_data from "../assets/not-found.svg";
 import Select from "../components/common/Select";
 import { useSearchDelay } from "../hooks/useSearchDelay";
+import PropertyCard from "../components/pages/AllProperties/PropertyCard";
+import AllPropertiesSkeleton from "../components/skeleton/AllProperties/AllPropertiesSkeleton";
 
-const ViewProperties = () => {
+const AllProperties = () => {
   const [status, setStatus] = useState();
   const { handleChange, searchValue } = useSearchDelay();
   const query = new URLSearchParams({
@@ -68,10 +68,10 @@ const ViewProperties = () => {
           </div>
         </div>
       ) : (
-        <ViewPropertiesSkeleton />
+        <AllPropertiesSkeleton />
       )}
     </>
   );
 };
 
-export default ViewProperties;
+export default AllProperties;

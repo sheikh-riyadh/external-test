@@ -12,13 +12,12 @@ import PropertyImages from "../components/pages/AddProperty/PropertyImages/Prope
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useCreatePropertyMutation } from "../store/services/propertyApi/propertyApi";
-import { smoothScroll } from "../utils/smoothScroll";
+import Location from "../components/pages/AddProperty/Location/Location";
 
 const AddProperty = () => {
-  smoothScroll();
-
   /* Property image state */
   const [propertyImages, setPropertyImages] = useState([]);
+  const [location, setLocation] = useState("");
 
   /* React hook form */
   const { register, handleSubmit, watch, reset } = useForm();
@@ -34,6 +33,7 @@ const AddProperty = () => {
     const propertyData = {
       ...data,
       propertyImages,
+      location,
     };
 
     try {
@@ -64,6 +64,7 @@ const AddProperty = () => {
             setPropertyImages={setPropertyImages}
           />
           <AdditionalInfo register={register} />
+          <Location locationImage={location} setLocationImage={setLocation} />
           <div className="flex flex-col items-end justify-end">
             <SubmitButton isLoading={isLoading} className={"w-40"}>
               save

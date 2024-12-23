@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaBookReader, FaMapMarkerAlt } from "react-icons/fa";
 import { numberWithCommas } from "../../../utils/numberWithCommas";
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -8,11 +8,16 @@ import DeleteModal from "../../modals/DeleteModal";
 
 const PropertyCard = ({ property }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  /* Store the property id which is user want to delete */
   const [deleteId, setDeleteId] = useState();
+
+  /* Get delete functionality using redux */
   const [deleteProperty, { isLoading }] = useDeletePropertyMutation();
 
   const navigate = useNavigate();
 
+  /* Navigate update page with data */
   const handleEdit = (items) => {
     if (items) {
       navigate("/update-property", {
@@ -23,6 +28,7 @@ const PropertyCard = ({ property }) => {
     }
   };
 
+  /* Here we delete the property */
   const handleDelete = (id) => {
     setDeleteId(id);
     setIsModalOpen(true);
@@ -30,12 +36,24 @@ const PropertyCard = ({ property }) => {
 
   return (
     <div className="bg-card p-3 rounded-md border border-border-primary flex flex-col gap-y-2 text-primary">
-      <div className="w-full h-52">
+      <div
+        onClick={() => {
+          navigate("/property-details", {
+            state: {
+              payload: { ...property },
+            },
+          });
+        }}
+        className="w-full h-52 relative group duration-500"
+      >
         <img
           className="w-full h-full rounded-md"
           src={property?.propertyImages?.[0]}
           alt="property_image"
         />
+        <div className="w-full h-full absolute bg-black/80 top-0 flex-col items-center justify-center rounded-md hidden group-hover:flex cursor-pointer">
+          <FaBookReader className="animate-bounce text-6xl text-white" />
+        </div>
       </div>
       <div className="flex items-center justify-between gap-5">
         <span className="capitalize text-lg" title={property?.propertyName}>

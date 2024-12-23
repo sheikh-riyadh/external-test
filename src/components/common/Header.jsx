@@ -7,8 +7,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-card sticky top-0 flex items-center justify-between p-5 lg:hidden z-50 border-b border-border-primary">
-      <div className="cursor-pointer" onClick={() => setIsOpen((prev) => !prev)}>
+    <header className="w-full bg-card sticky top-0 flex items-center justify-between lg:justify-end p-3.5  z-50 border-b border-border-primary">
+      <div className="cursor-pointer lg:hidden" onClick={() => setIsOpen((prev) => !prev)}>
         <FaBars />
       </div>
       <nav>

@@ -10,7 +10,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
 
   return (
     <aside
-      className={`h-[calc(100vh)] transition-all block bg-card sticky top-0 z-40 border-r border-border-primary ${
+      className={`h-[calc(100vh)] transition-all block bg-card sticky top-0 z-[9999] border-r border-border-primary ${
         isOpen ? "w-[250px]" : "w-[85px]"
       }`}
     >
@@ -79,7 +79,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
               </div>
               <div className="text-primary" style={{ display: isOpen ? "block" : "none" }}>
                 <h3 className="text-base font-semibold">Amanda</h3>
-                <p className="text-sm pt-2">Admin Account</p>
+                <p className="text-sm pt-2">Agant Account</p>
               </div>
             </div>
             <div

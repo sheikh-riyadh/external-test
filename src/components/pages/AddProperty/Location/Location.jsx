@@ -1,12 +1,11 @@
-import { FaTrash, FaUpload } from "react-icons/fa";
 import toast from "react-hot-toast";
-import PropTypes from "prop-types";
-import Input from "../../../common/Input";
-import { ImSpinner9 } from "react-icons/im";
 import { useUploadImageMutation } from "../../../../store/services/imageUpload/imageUploadApi";
+import { ImSpinner9 } from "react-icons/im";
+import { FaTrash, FaUpload } from "react-icons/fa";
+import Input from "../../../common/Input";
+import PropTypes from "prop-types";
 
-const PropertyImages = ({ propertyImages, setPropertyImages }) => {
-  /* Get image upload function */
+const Location = ({ locationImage, setLocationImage }) => {
   const [uploadImage, { isLoading }] = useUploadImageMutation();
 
   /* Here we upload image */
@@ -20,7 +19,7 @@ const PropertyImages = ({ propertyImages, setPropertyImages }) => {
     try {
       const response = await uploadImage(formData).unwrap();
       if (response?.data?.display_url) {
-        setPropertyImages((image) => [...image, response.data?.display_url]);
+        setLocationImage(response.data?.display_url);
       } else {
         toast.error("Something went wrong 😓", { id: "upload_error" });
       }
@@ -30,20 +29,17 @@ const PropertyImages = ({ propertyImages, setPropertyImages }) => {
   };
 
   /* Remove image which is user want */
-  const handleRemovePropertyImage = (deleteItem) => {
-    const restPropertyImages = propertyImages?.filter(
-      (image) => image !== deleteItem
-    );
-    setPropertyImages(restPropertyImages);
+  const handleRemoveLocationImage = () => {
+    setLocationImage("");
   };
 
   return (
     <div className="bg-card p-5 rounded-md text-primary flex flex-col gap-5 border border-border-primary">
-      <span className="font-bold">Property image</span>
+      <span className="font-bold">Location image</span>
       <div>
         <div className={"h-44 w-full"}>
           <label
-            htmlFor="property_image"
+            htmlFor="location"
             className="rounded-full inline-block my-1 w-full"
           >
             <div
@@ -58,7 +54,7 @@ const PropertyImages = ({ propertyImages, setPropertyImages }) => {
               ) : (
                 <p className="flex flex-col gap-1 items-center justify-center font-medium text-accent w-full h-full bg-background">
                   <FaUpload />
-                  <span>Click to upload</span>
+                  <span>Click to upload location</span>
                 </p>
               )}
             </div>
@@ -67,37 +63,38 @@ const PropertyImages = ({ propertyImages, setPropertyImages }) => {
           <Input
             onChange={(event) => handleImageUpload(event)}
             className="hidden"
-            id="property_image"
+            id="location"
             type="file"
             accept="image/*"
             disabled={isLoading}
           />
         </div>
       </div>
-      <div className="grid lg:grid-cols-5 gap-5">
-        {propertyImages?.map((image) => (
-          <div
-            key={image}
-            className="w-full h-[180px] relative border border-border-primary rounded-md overflow-hidden"
-          >
-            <img className="h-full w-full" src={image} alt="property-image" />
+      <div>
+        {locationImage && (
+          <div className="w-full h-[250px] relative border border-border-primary rounded-md overflow-hidden">
+            <img
+              className="h-full w-full"
+              src={locationImage}
+              alt="location_image"
+            />
 
             <div
-              onClick={() => handleRemovePropertyImage(image)}
+              onClick={handleRemoveLocationImage}
               className="w-6 h-6 bg-rose-600 flex flex-col items-center justify-center rounded-full absolute top-2 right-2 cursor-pointer text-white"
             >
               <FaTrash />
             </div>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
 };
 
-PropertyImages.propTypes = {
-  propertyImages: PropTypes.array,
-  setPropertyImages: PropTypes.func,
+Location.propTypes = {
+  locationImage: PropTypes.string,
+  setLocationImage: PropTypes.func,
 };
 
-export default PropertyImages;
+export default Location;
