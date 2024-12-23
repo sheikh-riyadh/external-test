@@ -10,7 +10,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
 
   return (
     <aside
-      className={`h-[calc(100vh)] transition-all block bg-card sticky top-0 z-[9999] border-r border-border-primary ${
+      className={`h-[calc(100vh)] transition-all block bg-card sticky top-0 z-40 border-r border-border-primary ${
         isOpen ? "w-[250px]" : "w-[85px]"
       }`}
     >
@@ -25,12 +25,12 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
             >
               {isOpen ? (
                 <FaArrowLeft
-                  className="bg-blue-600 p-2 rounded-full cursor-pointer"
+                  className="bg-blue-600 p-2 rounded-full cursor-pointer z-[999]"
                   onClick={() => setIsOpen((prev) => !prev)}
                 />
               ) : (
                 <FaArrowRight
-                  className="bg-blue-600 p-2 rounded-full cursor-pointer"
+                  className="bg-blue-600 p-2 rounded-full cursor-pointer z-[999]"
                   onClick={() => setIsOpen((prev) => !prev)}
                 />
               )}
