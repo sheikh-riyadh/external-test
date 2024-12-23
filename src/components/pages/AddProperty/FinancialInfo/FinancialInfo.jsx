@@ -36,7 +36,7 @@ const FinancialInfo = ({ register }) => {
             placeholder="Monthly payment amount"
           />
           <Input
-            {...register("monthlyPayment")}
+            {...register("rentalIncome")}
             label={"Rental Income Potential"}
             placeholder="Average monthly rent if fully occupied."
           />

@@ -58,7 +58,7 @@ const PropertyDetails = ({ register }) => {
           placeholder="Add a unit selector (e.g., sqft, sqm)"
         />
         <Input
-          {...register("floorArea")}
+          {...register("constructionYear")}
           label={"Construction Year"}
           placeholder="Year Picker"
           type="date"

@@ -10,13 +10,13 @@ const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    handleTheme: (state, action) => {
-      state.value.user = action.payload;
+    addTheme: (state, action) => {
+      state.value.theme = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { handleTheme } = themeSlice.actions;
+export const { addTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;

@@ -1,10 +1,15 @@
 import { Outlet } from "react-router";
 import Sidebar from "./Sidebar";
 import Header from "../components/common/Header";
-// import { FaMoon } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
+import { useGetTheme } from "../hooks/useGetTheme";
+import { useHandleTheme } from "../hooks/useHandleTheme";
 
 const MainLayout = () => {
+  const { theme } = useGetTheme();
+  const handleTheme = useHandleTheme();
+
   return (
     <div className="flex">
       <div className="hidden lg:block">
@@ -19,7 +24,17 @@ const MainLayout = () => {
 
       <div className="fixed top-2/4 right-0 bg-card p-2 rounded-l-lg border border-border-primary">
         <div>
-          <IoMdSunny className="text-2xl spin text-primary"/>
+          {theme === "light" ? (
+            <FaMoon
+              onClick={() => handleTheme("dark")}
+              className="text-2xl text-primary cursor-pointer"
+            />
+          ) : (
+            <IoMdSunny
+              onClick={() => handleTheme("light")}
+              className="text-2xl spin text-primary cursor-pointer"
+            />
+          )}
         </div>
       </div>
     </div>
