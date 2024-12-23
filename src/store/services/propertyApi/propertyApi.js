@@ -3,8 +3,8 @@ import { baseApi } from "../../api/baseApi";
 export const propertyApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getProperties: build.query({
-      query: () => ({
-        url: `get-properties`,
+      query: (query) => ({
+        url: `get-properties?${query}`,
       }),
       providesTags: ["properties"],
     }),
@@ -26,7 +26,7 @@ export const propertyApi = baseApi.injectEndpoints({
     }),
     deleteProperty: build.mutation({
       query: (id) => ({
-        url: `delete-propery?${id}`,
+        url: `delete-property/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["properties"],

@@ -5,6 +5,7 @@ import AddProperty from "../pages/AddProperty";
 import ViewProperties from "../pages/ViewProperties";
 import CheckIns from "../pages/CheckIns";
 import Checkouts from "../pages/Checkouts";
+import UpdateProperty from "../pages/UpdateProperty";
 
 const routes = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const routes = createBrowserRouter([
       {
         path: "/add-property",
         element: <AddProperty />,
+      },
+      {
+        path: "/update-property",
+        element: <UpdateProperty />,
       },
       {
         path: "/view-properties",
