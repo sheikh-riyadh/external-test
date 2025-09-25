@@ -31,8 +31,8 @@ const Popular = () => {
           </div>
           {isModalOpen && (
             <Modal
-              title={"Add Category"}
-              className="w-[350px] xl:w-[500px]"
+              title={"Add Test"}
+              className="w-[350px] xl:w-[500px] relative"
               onClose={setIsModalOpen}
               isOpen={isModalOpen}
             >

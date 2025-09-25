@@ -37,7 +37,7 @@ const Modal = ({
     >
       <div
         className={cn(
-          "bg-card rounded-lg p-5 shadow-lg  overflow-y-auto custom-bar border border-border-primary",
+          "bg-card rounded-lg p-5 shadow-lg  overflow-y-auto",
           className
         )}
       >

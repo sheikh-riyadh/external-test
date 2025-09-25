@@ -11,16 +11,21 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 import { useGetTheme } from "../../../hooks/useGetTheme";
+import { orgName } from "../../../data/sidebar";
 
 const Analytics = ({ analyticeData }) => {
   const { theme } = useGetTheme();
-  let color_1, color_2;
+  let color_1, color_2, color_3, color_4;
   if (theme === "dark") {
     color_1 = "#214496";
     color_2 = "#008a47";
-  }else{
+    color_3 = "#0a6fb8";
+    color_4 = "#273387";
+  } else {
     color_2 = "#008a47";
     color_1 = "#214496";
+    color_3 = "#0a6fb8";
+    color_4 = "#273387";
   }
 
   return (
@@ -31,15 +36,19 @@ const Analytics = ({ analyticeData }) => {
           <span className="">Updated overview of your external test</span>
         </div>
         <div className="flex items-center gap-5">
-          <div className="flex items-center gap-2">
-            <FaCircle
-              className={`text-md rounded-full`}
-              style={{
-                color: color_2,
-              }}
-            />
-            <span className="text-primary">Popular</span>
-          </div>
+          {[color_1,color_2,color_3,color_4].map((color,index) => (
+            <div key={color} className="flex items-center gap-2">
+              <FaCircle
+                className={`text-md rounded-full`}
+                style={{
+                  color: color
+                }}
+                
+              />
+              <span className="text-primary">{orgName[index]}</span>
+            </div>
+          ))}
+
           <div className="flex items-center gap-2">
             <FaCircle
               className={`text-md rounded-full`}
@@ -63,11 +72,33 @@ const Analytics = ({ analyticeData }) => {
                 background: "rgba(var(--background))",
                 borderRadius: "10px",
                 border: "rgba(var(--border))",
-                color:"rgba(var(--copy-secondary))"
+                color: "rgba(var(--copy-secondary))",
               }}
             />
-            <Bar name="Popular total test" dataKey="pv" fill={`${color_2}`} barSize={13} />
-            <Bar name="Ibn sina total test" dataKey="uv" fill={`${color_1}`} barSize={13} />
+            <Bar
+              name="Popular total test"
+              dataKey="pv"
+              fill={`${color_2}`}
+              barSize={10}
+            />
+            <Bar
+              name="Ibn sina total test"
+              dataKey="uv"
+              fill={`${color_1}`}
+              barSize={10}
+            />
+            <Bar
+              name="Asgar-ali total test"
+              dataKey="uv"
+              fill={`${color_3}`}
+              barSize={10}
+            />
+            <Bar
+              name="Medinova total test"
+              dataKey="uv"
+              fill={`${color_4}`}
+              barSize={10}
+            />
           </BarChart>
         </ResponsiveContainer>
       </React.Fragment>

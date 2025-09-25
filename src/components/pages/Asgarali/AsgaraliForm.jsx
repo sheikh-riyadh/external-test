@@ -2,7 +2,7 @@ import Input from "../../common/Input";
 import Select from "../../common/Select";
 import SubmitButton from "../../common/SubmitButton";
 
-const IbnForm = () => {
+const AsgaraliForm = () => {
     const classes=""
   return (
     <div>
@@ -20,4 +20,4 @@ const IbnForm = () => {
   );
 };
 
-export default IbnForm;
+export default AsgaraliForm;

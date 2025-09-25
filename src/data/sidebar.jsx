@@ -1,7 +1,9 @@
 import {
   FaThLarge,
   FaPinterest,
-  FaInfoCircle  
+  FaInfoCircle,
+  FaMediumM,
+  FaBuysellads 
 } from "react-icons/fa";
 
 
@@ -21,4 +23,16 @@ export const sidebar_data = [
     name: "Popular",
     icon: <FaPinterest />,
   },
+  {
+    path: "/asgarali",
+    name: "Asgarali",
+    icon: <FaBuysellads />,
+  },
+  {
+    path: "/medinova",
+    name: "Medinova",
+    icon: <FaMediumM />,
+  },
 ];
+
+export const orgName=["Ibn sina","Popular","Asgarali","Medinova"]

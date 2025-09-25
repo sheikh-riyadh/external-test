@@ -3,6 +3,8 @@ import MainLayout from "../layout/MainLayout";
 import Overview from "../pages/Overview";
 import Popular from "../pages/Popular";
 import Ibnsina from "../pages/Ibnsina";
+import Asgarali from "../pages/Asgarali";
+import Medinova from "../pages/Medinova";
 
 
 const routes = createBrowserRouter([
@@ -25,6 +27,14 @@ const routes = createBrowserRouter([
       {
         path: "/ibnsina",
         element: <Ibnsina/>,
+      },
+      {
+        path: "/asgarali",
+        element: <Asgarali/>,
+      },
+      {
+        path: "/medinova",
+        element: <Medinova/>,
       },
     ],
   },
