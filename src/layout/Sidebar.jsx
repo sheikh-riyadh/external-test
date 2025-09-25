@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
-import { FaArrowLeft, FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import PropTypes from "prop-types";
+import { FaArrowLeft, FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import { sidebar_data } from "../data/sidebar";
 import person from "../assets/pd-person.jpg";
 
@@ -17,7 +17,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
       <div className="flex flex-col justify-between h-full">
         <div>
           <div className="flex items-center justify-between py-5 px-8">
-            <h1 className={`${isOpen ? "block" : "hidden"} font-bold text-xl text-primary`}>ELYSIUM TECH</h1>
+            <h1 className={`${isOpen ? "block" : "hidden"} font-bold text-xl text-primary uppercase`}>External Test</h1>
             <div
               className={`text-3xl -mr-11 z-50 text-[#fff] ${
                 !visibleArrow ? "hidden" : "block"

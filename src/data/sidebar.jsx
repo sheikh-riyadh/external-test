@@ -1,8 +1,9 @@
 import {
-  FaBinoculars,
-  FaHome,
   FaThLarge,
+  FaPinterest,
+  FaInfoCircle  
 } from "react-icons/fa";
+
 
 export const sidebar_data = [
   {
@@ -11,13 +12,13 @@ export const sidebar_data = [
     icon: <FaThLarge />,
   },
   {
-    path: "/add-property",
-    name: "Add Property",
-    icon: <FaHome />,
+    path: "/ibnsina",
+    name: "Ibn sina",
+    icon: <FaInfoCircle />,
   },
   {
-    path: "/all-properties",
-    name: "All Properties",
-    icon: <FaBinoculars />,
+    path: "/popular",
+    name: "Popular",
+    icon: <FaPinterest />,
   },
 ];

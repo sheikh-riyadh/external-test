@@ -20,9 +20,6 @@ const Overview = () => {
     <div className="flex flex-col gap-10">
       <span className="font-bold text-xl text-primary">Overview</span>
       <Analytics analyticeData={analytice} />
-      <div>
-        
-      </div>
     </div>
   );
 };

@@ -16,11 +16,11 @@ const Analytics = ({ analyticeData }) => {
   const { theme } = useGetTheme();
   let color_1, color_2;
   if (theme === "dark") {
-    color_1 = "#fff";
-    color_2 = "#2563eb";
+    color_1 = "#214496";
+    color_2 = "#008a47";
   }else{
-    color_2 = "#2563eb";
-    color_1 = "#EBAD25";
+    color_2 = "#008a47";
+    color_1 = "#214496";
   }
 
   return (
@@ -28,7 +28,7 @@ const Analytics = ({ analyticeData }) => {
       <div className="flex gap-5 p-5 justify-between flex-wrap">
         <div className="flex flex-col gap-2 text-primary">
           <span className="font-bold text-2xl">Welcome back</span>
-          <span className="">Updated overview of your properties</span>
+          <span className="">Updated overview of your external test</span>
         </div>
         <div className="flex items-center gap-5">
           <div className="flex items-center gap-2">
@@ -38,7 +38,7 @@ const Analytics = ({ analyticeData }) => {
                 color: color_2,
               }}
             />
-            <span className="text-primary">Earning</span>
+            <span className="text-primary">Popular</span>
           </div>
           <div className="flex items-center gap-2">
             <FaCircle
@@ -47,7 +47,7 @@ const Analytics = ({ analyticeData }) => {
                 color: color_1,
               }}
             />
-            <h1 className=" text-primary">Review</h1>
+            <h1 className="text-primary">Ibn sina</h1>
           </div>
         </div>
       </div>
@@ -66,8 +66,8 @@ const Analytics = ({ analyticeData }) => {
                 color:"rgba(var(--copy-secondary))"
               }}
             />
-            <Bar name="Earning" dataKey="pv" fill={`${color_2}`} barSize={13} />
-            <Bar name="Review" dataKey="uv" fill={`${color_1}`} barSize={13} />
+            <Bar name="Popular total test" dataKey="pv" fill={`${color_2}`} barSize={13} />
+            <Bar name="Ibn sina total test" dataKey="uv" fill={`${color_1}`} barSize={13} />
           </BarChart>
         </ResponsiveContainer>
       </React.Fragment>
