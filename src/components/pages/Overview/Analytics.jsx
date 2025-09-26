@@ -35,7 +35,7 @@ const Analytics = ({ analyticeData }) => {
           <span className="font-bold text-2xl">Welcome back</span>
           <span className="">Updated overview of your external test</span>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 flex-wrap">
           {[color_1,color_2,color_3,color_4].map((color,index) => (
             <div key={color} className="flex items-center gap-2">
               <FaCircle
@@ -48,16 +48,6 @@ const Analytics = ({ analyticeData }) => {
               <span className="text-primary">{orgName[index]}</span>
             </div>
           ))}
-
-          <div className="flex items-center gap-2">
-            <FaCircle
-              className={`text-md rounded-full`}
-              style={{
-                color: color_1,
-              }}
-            />
-            <h1 className="text-primary">Ibn sina</h1>
-          </div>
         </div>
       </div>
 
