@@ -36,7 +36,7 @@ const Ibnsina = () => {
           onClose={setIsModalOpen}
           isOpen={isModalOpen}
         >
-          <IbnForm/>
+          <IbnForm setIsModalOpen={setIsModalOpen}/>
         </Modal>
       )}
     </div>
