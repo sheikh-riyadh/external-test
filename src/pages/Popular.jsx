@@ -36,7 +36,7 @@ const Popular = () => {
               onClose={setIsModalOpen}
               isOpen={isModalOpen}
             >
-              <PopularForm/>
+              <PopularForm setIsModalOpen={setIsModalOpen}/>
             </Modal>
           )}
         </div>

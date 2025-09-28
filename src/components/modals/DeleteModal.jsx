@@ -50,6 +50,7 @@ const DeleteModal = ({
               onClick={handleDelete}
               isLoading={isLoading}
               loadingText="Deleting..."
+              className={"bg-rose-500"}
             >
               Sure
             </SubmitButton>

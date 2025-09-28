@@ -48,13 +48,32 @@ const IbnsianTable = ({ search }) => {
               {
                 name: "Status",
                 render: ({ item }) => {
-                  return <span className={`capitalize ${item?.status=="printed"? "bg-green-500 px-5 rounded-full py-1 font-medium":null}`}>{item?.status}</span>;
+                  return (
+                    <span
+                      className={`capitalize ${
+                        item?.status == "printed"
+                          ? "bg-green-500 px-5 rounded-full py-1 font-medium"
+                          : item?.status == "cancelled"
+                          ? "bg-rose-500 px-5 rounded-full py-1 font-medium"
+                          : null
+                      }`}
+                    >
+                      {item?.status}
+                    </span>
+                  );
                 },
               },
               {
                 name: "Send",
                 render: ({ item }) => {
-                  return <span>{moment(item?.sendingDate).format("ll")}</span>;
+                  return (
+                    <div className="flex items-center gap-2">
+                      <span>{moment(item?.sendingDate).format("ll")}</span>
+                      <span>
+                        {moment(item?.time, "HH:mm").format("hh:mm A")}
+                      </span>
+                    </div>
+                  );
                 },
               },
               {
@@ -76,7 +95,7 @@ const IbnsianTable = ({ search }) => {
             setCurrentPage={setCurrentPage}
             setLimit={setLimit}
             pages={pages}
-            key={"categories_pagination"}
+            key={"ibnsina"}
           />
         </div>
       ) : (

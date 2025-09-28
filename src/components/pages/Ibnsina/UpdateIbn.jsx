@@ -89,13 +89,22 @@ const UpdateIbn = ({ item }) => {
                 placeholder="Test Name"
                 className={classes}
               />
-              <Input
-                {...register("sendingDate")}
-                required
-                type="date"
-                className={classes}
-                title="Sending date"
-              />
+              <div className="grid grid-cols-2 gap-5">
+                <Input
+                  {...register("sendingDate")}
+                  required
+                  type="date"
+                  className={classes}
+                  title="Sending date"
+                />
+                <Input
+                  {...register("time")}
+                  required
+                  type="time"
+                  className={classes}
+                  title="time"
+                />
+              </div>
               <Select
                 {...register("status")}
                 selected="default"
