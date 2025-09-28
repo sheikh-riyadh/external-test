@@ -25,7 +25,7 @@ const Table = ({ columns, tableData, className }) => {
           <thead className="bg-widget">
             <tr>
               {columns?.map((column, index) => (
-                <th key={index} className="p-4 text-left text-[#047857]">
+                <th key={index} className="p-4 text-left text-primary">
                   <div className="flex items-center justify-between">
                     <span className="whitespace-nowrap">{column.name}</span>{" "}
                   </div>
@@ -35,14 +35,14 @@ const Table = ({ columns, tableData, className }) => {
           </thead>
           <tbody
             className={cn(
-              `text-white text-sm font-light bg-widget`,
+              `text-primary text-sm font-light bg-widget`,
               className
             )}
           >
             {data?.map((item, index) => (
               <tr key={index} className="">
                 {columns?.map((column, index) => (
-                  <td key={index} className="p-4 border-t border-black">
+                  <td key={index} className="p-4 border-t border-slate-300">
                     {column?.render ? (
                       <column.render item={item} />
                     ) : (

@@ -18,7 +18,7 @@ export const ibnsinaApi = baseApi.injectEndpoints({
     }),
     updateIbnsinatest: build.mutation({
       query: (data) => ({
-        url: "update-ibnsinatest",
+        url: "update-inbsinatest",
         method: "PATCH",
         body: data,
       }),

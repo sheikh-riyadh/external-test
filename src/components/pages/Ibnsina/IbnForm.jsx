@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useGetInvoice } from "../../../hooks/useGetInvoice";
 import Input from "../../common/Input";
 import Select from "../../common/Select";
 import SubmitButton from "../../common/SubmitButton";
@@ -7,21 +6,15 @@ import { useCreateIbnsinatestMutation } from "../../../store/services/ibnsinaApi
 import toast from "react-hot-toast";
 import PropTypes from "prop-types";
 
-const IbnForm = ({setIsModalOpen}) => {
-  const invoiceNumber = useGetInvoice();
+const IbnForm = ({ setIsModalOpen }) => {
   const { register, handleSubmit } = useForm();
   const [createTest, { isLoading }] = useCreateIbnsinatestMutation();
 
   const handleCreateIbnsinatest = async (data) => {
-    const details = {
-      ...data,
-      invoice: invoiceNumber + data?.invoice,
-    };
-
-    const result = await createTest(details);
+    const result = await createTest(data);
     if (result?.data?.acknowledged) {
       toast.success("Test added successfully", { id: "success" });
-      setIsModalOpen(false)
+      setIsModalOpen(false);
     } else {
       toast.error("Something went wrong");
     }
@@ -42,9 +35,15 @@ const IbnForm = ({setIsModalOpen}) => {
         />
         <Input
           {...register("invoice")}
-          maxLength="4"
+          maxLength="9"
           required
           placeholder="Invoice Number"
+          className={classes}
+        />
+        <Input
+          {...register("ibnId")}
+          required
+          placeholder="Ibn sina id"
           className={classes}
         />
         <Input

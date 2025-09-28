@@ -17,7 +17,13 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
       <div className="flex flex-col justify-between h-full">
         <div>
           <div className="flex items-center justify-between py-5 px-8">
-            <h1 className={`${isOpen ? "block" : "hidden"} font-bold text-xl text-primary uppercase`}>External Test</h1>
+            <h1
+              className={`${
+                isOpen ? "block" : "hidden"
+              } font-bold text-xl text-primary uppercase`}
+            >
+              External Test
+            </h1>
             <div
               className={`text-3xl -mr-11 z-50 text-[#fff] ${
                 !visibleArrow ? "hidden" : "block"
@@ -77,7 +83,10 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
                   alt="user"
                 />
               </div>
-              <div className="text-primary" style={{ display: isOpen ? "block" : "none" }}>
+              <div
+                className="text-primary"
+                style={{ display: isOpen ? "block" : "none" }}
+              >
                 <h3 className="text-base font-semibold">Amanda</h3>
                 <p className="text-sm pt-2">Agant Account</p>
               </div>
