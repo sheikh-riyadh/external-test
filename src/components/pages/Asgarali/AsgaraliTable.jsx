@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import UpdateAsgarali from "./UpdateAsgarali";
 import DeleteAsgarali from "./DeleteAsgarali";
 import { useGetAsgaralitestQuery } from "../../../store/services/asgaraliApi/asgaraliApi";
+import moment from "moment";
 
 const AsgaraliTable = ({ search }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -17,8 +18,8 @@ const AsgaraliTable = ({ search }) => {
     page: currentPage,
   }).toString();
 
-  const {data, isLoading}=useGetAsgaralitestQuery(query)
- const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
+  const { data, isLoading } = useGetAsgaralitestQuery(query);
+  const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
 
   return (
     <div className="rounded-md shadow-md">
@@ -29,20 +30,57 @@ const AsgaraliTable = ({ search }) => {
             tableData={data?.data}
             columns={[
               {
-                name: "Category",
-                dataIndex: "category",
-                key: "category",
+                name: "Patient Name",
+                dataIndex: "ptName",
+                key: "ptName",
               },
               {
-                name: "Image",
+                name: "Invoice",
+                dataIndex: "invoice",
+                key: "invoice",
+              },
+              {
+                name: "Test Name",
+                dataIndex: "test",
+                key: "test",
+              },
+              {
+                name: "UCN",
+                dataIndex: "ucn",
+                key: "ucn",
+              },
+              {
+                name: "MR",
+                dataIndex: "mr",
+                key: "mr",
+              },
+              {
+                name: "Status",
                 render: ({ item }) => {
                   return (
-                    <div className="flex items-center gap-2 h-12 w-12">
-                      <img
-                        className="w-full h-full"
-                        src={item?.image}
-                        alt="category"
-                      />
+                    <span
+                      className={`capitalize ${
+                        item?.status == "printed"
+                          ? "bg-green-500 px-5 rounded-full py-1 font-medium"
+                          : item?.status == "cancelled"
+                          ? "bg-rose-500 px-5 rounded-full py-1 font-medium"
+                          : null
+                      }`}
+                    >
+                      {item?.status}
+                    </span>
+                  );
+                },
+              },
+              {
+                name: "Send",
+                render: ({ item }) => {
+                  return (
+                    <div className="flex items-center gap-2">
+                      <span>{moment(item?.sendingDate).format("ll")}</span>
+                      <span>
+                        {moment(item?.time, "HH:mm").format("hh:mm A")}
+                      </span>
                     </div>
                   );
                 },

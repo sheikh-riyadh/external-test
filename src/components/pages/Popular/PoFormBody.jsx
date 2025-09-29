@@ -45,7 +45,7 @@ const PoFormBody = ({ register }) => {
 
       <Select
         {...register("status")}
-        selected="default"
+        defaultValue="default"
         options={["default", "printed", "cancelled"]}
       />
     </>

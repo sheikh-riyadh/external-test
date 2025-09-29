@@ -50,7 +50,7 @@ const IbnFormBody = ({ register }) => {
       </div>
       <Select
         {...register("status")}
-        selected="default"
+        defaultValue="default"
         options={["default", "printed", "cancelled"]}
       />
     </>

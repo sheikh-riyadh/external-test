@@ -16,7 +16,7 @@ const Asgarali = () => {
         <div className="grid xl:grid-cols-2">
           <span className="font-bold text-xl text-primary uppercase">{`Asgar-ali test`}</span>
           <div className="flex items-center gap-3 justify-end mt-5 xl:mt-0">
-            <Input placeholder="Search..." className="bg-card" onChange={handleChange} />
+            <Input maxLength="9" placeholder="Search..." className="bg-card" onChange={handleChange} />
             <Button
               onClick={() => setIsModalOpen((prev) => !prev)}
               className="w-36"
