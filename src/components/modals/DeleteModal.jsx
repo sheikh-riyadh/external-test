@@ -19,7 +19,7 @@ const DeleteModal = ({
       if (result.error) {
         toast.error(result?.error?.data?.message, { id: "delete_error" });
       } else {
-        toast.success("Deleted successfully", { id: "delete_success" });
+        toast.success("Deleted successfully 😀", { id: "delete_success" });
       }
     } catch (error) {
       toast.error("Something went wrong 😓", { id: error });

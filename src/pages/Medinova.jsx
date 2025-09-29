@@ -37,7 +37,7 @@ const Medinova = () => {
           onClose={setIsModalOpen}
           isOpen={isModalOpen}
         >
-          <MedinovaForm/>
+          <MedinovaForm setIsModalOpen={setIsModalOpen}/>
         </Modal>
       )}
     </div>

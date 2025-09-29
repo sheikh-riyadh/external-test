@@ -1,28 +1,36 @@
-
-import { useGetInvoice } from "../../../hooks/useGetInvoice";
-import Input from "../../common/Input";
-import Select from "../../common/Select";
+import { useForm } from "react-hook-form";
+import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 import SubmitButton from "../../common/SubmitButton";
+import { useCreateAsgaralitestMutation } from "../../../store/services/asgaraliApi/asgaraliApi";
+import AsFormBody from "./AsFormBody";
 
-const AsgaraliForm = () => {
-  const invoice = useGetInvoice()
+const AsgaraliForm = ({ setIsModalOpen }) => {
+  const [createAsgaraliTest, { isLoading }] = useCreateAsgaralitestMutation();
+  const { register, handleSubmit } = useForm();
 
-
-    const classes=""
+  const handleCreateAsgaraliTest = async (data) => {
+    const result = await createAsgaraliTest(data);
+    if (result?.data?.acknowledged) {
+      toast.success("Test added successfully 😀", { id: "success" });
+      setIsModalOpen(false);
+    } else {
+      toast.error("Something went wrong 😥");
+    }
+  };
   return (
     <div>
-      <form className="flex flex-col gap-5">
-        <Input required placeholder="Patient Name" className={classes} />
-        <Input maxlength="4" required placeholder="Invoice Number" className={classes} />
-        <Input required placeholder="Test Name" className={classes} />
-        <Input required type="date" className={classes} title="Sending date" />
-        <Select options={['default','printed', 'cancelled']}/>
-        <SubmitButton>
-            Save
-        </SubmitButton>
+      <form
+        onSubmit={handleSubmit(handleCreateAsgaraliTest)}
+        className="flex flex-col gap-5"
+      >
+        <AsFormBody register={register} />
+        <SubmitButton isLoading={isLoading}>Save</SubmitButton>
       </form>
     </div>
   );
 };
-
+AsgaraliForm.propTypes = {
+  setIsModalOpen: PropTypes.func,
+};
 export default AsgaraliForm;

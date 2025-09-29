@@ -36,7 +36,7 @@ const Asgarali = () => {
           onClose={setIsModalOpen}
           isOpen={isModalOpen}
         >
-          <AsgaraliForm/>
+          <AsgaraliForm setIsModalOpen={setIsModalOpen}/>
         </Modal>
       )}
     </div>

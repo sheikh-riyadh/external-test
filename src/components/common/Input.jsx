@@ -25,7 +25,7 @@ const Input = forwardRef(
         <div className="flex items-center justify-between relative w-full overflow-hidden">
           <input
             className={cn(
-              `focus:outline-none bg-background w-full p-2 rounded-sm`,
+              `focus:outline-none bg-background w-full p-2 rounded`,
               className
             )}
             {...rest}

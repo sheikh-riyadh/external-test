@@ -3,10 +3,11 @@ import NotFound from "../../common/NotFound";
 import Pagination from "../../common/Pagination";
 import Table from "../../common/Table";
 import PropTypes from "prop-types";
+import UpdateAsgarali from "./UpdateAsgarali";
+import DeleteAsgarali from "./DeleteAsgarali";
+import { useGetAsgaralitestQuery } from "../../../store/services/asgaraliApi/asgaraliApi";
 
 const AsgaraliTable = ({ search }) => {
-  const isLoading = false;
-
   const [currentPage, setCurrentPage] = useState(0);
   const [limit, setLimit] = useState(10);
 
@@ -16,10 +17,8 @@ const AsgaraliTable = ({ search }) => {
     page: currentPage,
   }).toString();
 
-  const data = {
-    total: 30,
-  };
-  const pages = Math.ceil(Math.abs(data?.total ?? 0) / parseInt(limit));
+  const {data, isLoading}=useGetAsgaralitestQuery(query)
+ const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
 
   return (
     <div className="rounded-md shadow-md">
@@ -27,7 +26,7 @@ const AsgaraliTable = ({ search }) => {
         <div>
           <Table
             className="font-normal"
-            tableData={[]}
+            tableData={data?.data}
             columns={[
               {
                 name: "Category",
@@ -54,8 +53,8 @@ const AsgaraliTable = ({ search }) => {
                 render: ({ item }) => {
                   return (
                     <div className="flex items-center gap-2">
-                      {/* <UpdateCategory item={item} />
-                      <DeleteCategory deleteId={item?._id} /> */}
+                      <UpdateAsgarali item={item} />
+                      <DeleteAsgarali deleteId={item?._id} />
                     </div>
                   );
                 },

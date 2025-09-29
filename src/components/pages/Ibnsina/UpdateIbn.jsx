@@ -3,17 +3,14 @@ import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { FaEdit } from "react-icons/fa";
 import SubmitButton from "../../common/SubmitButton";
-import Select from "../../common/Select";
-import Input from "../../common/Input";
 import Modal from "../../modals/Modal";
 import { useUpdateIbnsinatestMutation } from "../../../store/services/ibnsinaApi/ibnsinaApi";
 import toast from "react-hot-toast";
+import IbnFormBody from "./IbnFormBody";
 
 const UpdateIbn = ({ item }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { register, handleSubmit, setValue } = useForm();
-
-  const classes = "";
   const [updateIbn, { isLoading }] = useUpdateIbnsinatestMutation();
 
   useEffect(() => {
@@ -64,52 +61,7 @@ const UpdateIbn = ({ item }) => {
               onSubmit={handleSubmit(handleUpdateIbnsinatest)}
               className="flex flex-col gap-5"
             >
-              <Input
-                {...register("ptName")}
-                required
-                placeholder="Patient Name"
-                className={classes}
-              />
-              <Input
-                {...register("invoice")}
-                maxLength="9"
-                required
-                placeholder="Invoice Number"
-                className={classes}
-              />
-              <Input
-                {...register("ibnId")}
-                required
-                placeholder="Ibn sina id"
-                className={classes}
-              />
-              <Input
-                {...register("test")}
-                required
-                placeholder="Test Name"
-                className={classes}
-              />
-              <div className="grid grid-cols-2 gap-5">
-                <Input
-                  {...register("sendingDate")}
-                  required
-                  type="date"
-                  className={classes}
-                  title="Sending date"
-                />
-                <Input
-                  {...register("time")}
-                  required
-                  type="time"
-                  className={classes}
-                  title="time"
-                />
-              </div>
-              <Select
-                {...register("status")}
-                selected="default"
-                options={["default", "printed", "cancelled"]}
-              />
+              <IbnFormBody register={register} />
               <SubmitButton isLoading={isLoading}>Update</SubmitButton>
             </form>
           </div>
