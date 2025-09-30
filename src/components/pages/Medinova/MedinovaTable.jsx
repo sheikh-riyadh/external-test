@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Table from "../../common/Table";
 import Pagination from "../../common/Pagination";
-import NotFound from "../../common/NotFound";
 import PropTypes from "prop-types";
 import { useGetMedinovatestQuery } from "../../../store/services/medinovaApi/medinovaApi";
 import UpdateMedinova from "./UpdateMedinova";
 import DeleteMedinova from "./DeleteMedinova";
 import moment from "moment";
+import Spinner from "../../common/Spinner";
 
 const MedinovaTable = ({ search }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -19,7 +19,7 @@ const MedinovaTable = ({ search }) => {
   }).toString();
 
   const { data, isLoading } = useGetMedinovatestQuery(query);
-  const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
+  const pages = Math.ceil(Math.abs(data?.total ?? 0) / parseInt(limit));
 
   return (
     <div className="rounded-md shadow-md">
@@ -104,7 +104,7 @@ const MedinovaTable = ({ search }) => {
           />
         </div>
       ) : (
-        <NotFound />
+        <Spinner />
       )}
     </div>
   );

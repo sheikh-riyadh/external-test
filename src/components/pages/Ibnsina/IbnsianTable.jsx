@@ -20,7 +20,7 @@ const IbnsianTable = ({ search }) => {
 
   const { data, isLoading } = useGetIbnasinaTestQuery(query);
 
-  const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
+  const pages = Math.ceil(Math.abs(data?.total ?? 0) / parseInt(limit));
 
   return (
     <div className="rounded-md shadow-md">

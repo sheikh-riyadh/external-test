@@ -1,5 +1,4 @@
 import { useState } from "react";
-import NotFound from "../../common/NotFound";
 import Pagination from "../../common/Pagination";
 import Table from "../../common/Table";
 import PropTypes from "prop-types";
@@ -7,6 +6,7 @@ import UpdateAsgarali from "./UpdateAsgarali";
 import DeleteAsgarali from "./DeleteAsgarali";
 import { useGetAsgaralitestQuery } from "../../../store/services/asgaraliApi/asgaraliApi";
 import moment from "moment";
+import Spinner from "../../common/Spinner";
 
 const AsgaraliTable = ({ search }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -19,7 +19,7 @@ const AsgaraliTable = ({ search }) => {
   }).toString();
 
   const { data, isLoading } = useGetAsgaralitestQuery(query);
-  const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
+  const pages = Math.ceil(Math.abs(data?.total ?? 0) / parseInt(limit));
 
   return (
     <div className="rounded-md shadow-md">
@@ -109,7 +109,7 @@ const AsgaraliTable = ({ search }) => {
           />
         </div>
       ) : (
-        <NotFound />
+        <Spinner />
       )}
     </div>
   );

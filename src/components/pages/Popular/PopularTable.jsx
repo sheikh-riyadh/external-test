@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Table from "../../common/Table";
 import Pagination from "../../common/Pagination";
-import NotFound from "../../common/NotFound";
 import PropTypes from "prop-types";
 import { useGetPopulartestQuery } from "../../../store/services/popularApi/popularApi";
 import UpdatePopular from "./UpdatePopular";
 import DeletePopular from "./DeletePopular";
 import moment from "moment";
+import Spinner from "../../common/Spinner";
 
 const PopularTable = ({ search }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -20,7 +20,7 @@ const PopularTable = ({ search }) => {
 
   const { data, isLoading } = useGetPopulartestQuery(query);
 
-  const pages = Math.ceil(Math.abs(data?.data?.total ?? 0) / parseInt(limit));
+  const pages = Math.ceil(Math.abs(data?.total ?? 0) / parseInt(limit));
 
   return (
     <div className="rounded-md shadow-md">
@@ -105,7 +105,7 @@ const PopularTable = ({ search }) => {
           />
         </div>
       ) : (
-        <NotFound />
+        <Spinner />
       )}
     </div>
   );
