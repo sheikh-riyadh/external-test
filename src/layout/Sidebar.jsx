@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 import { FaArrowLeft, FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import { sidebar_data } from "../data/sidebar";
 import person from "../assets/pd-person.jpg";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../store/features/user/userSlice";
 
 const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const dispatch = useDispatch();
 
   return (
     <aside
@@ -93,6 +96,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
             </div>
             <div
               className={`flex gap-3 items-center bg-blue-600 rounded-lg text-xl text-[#fff] p-4`}
+              onClick={() => dispatch(removeUser())}
             >
               <FaSignOutAlt className="text-base" />
               <button style={{ display: isOpen ? "block" : "none" }}>

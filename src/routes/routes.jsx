@@ -5,7 +5,8 @@ import Popular from "../pages/Popular";
 import Ibnsina from "../pages/Ibnsina";
 import Asgarali from "../pages/Asgarali";
 import Medinova from "../pages/Medinova";
-
+import Login from "../pages/Login";
+import PrivateRoute from "./privateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -14,29 +15,57 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Overview />,
+        element: (
+          <PrivateRoute>
+            <Overview />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/overview",
-        element: <Overview />,
+        element: (
+          <PrivateRoute>
+            <Overview />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/popular",
-        element: <Popular/>,
+        element: (
+          <PrivateRoute>
+            <Popular />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/ibnsina",
-        element: <Ibnsina/>,
+        element: (
+          <PrivateRoute>
+            <Ibnsina />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/asgarali",
-        element: <Asgarali/>,
+        element: (
+          <PrivateRoute>
+            <Asgarali />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/medinova",
-        element: <Medinova/>,
+        element: (
+          <PrivateRoute>
+            <Medinova />
+          </PrivateRoute>
+        ),
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

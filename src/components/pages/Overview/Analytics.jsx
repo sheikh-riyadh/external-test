@@ -10,23 +10,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import PropTypes from "prop-types";
-import { useGetTheme } from "../../../hooks/useGetTheme";
 import { orgName } from "../../../data/sidebar";
 
 const Analytics = ({ analyticeData }) => {
-  const { theme } = useGetTheme();
-  let color_1, color_2, color_3, color_4;
-  if (theme === "dark") {
-    color_1 = "#214496";
-    color_2 = "#008a47";
-    color_3 = "#0a6fb8";
-    color_4 = "#273387";
-  } else {
-    color_2 = "#008a47";
-    color_1 = "#214496";
-    color_3 = "#0a6fb8";
-    color_4 = "#273387";
-  }
+  const color_1 = "#1E90FF",
+    color_2 = "#2ECC71",
+    color_3 = "#9B59B6",
+    color_4 = "#E67E22";
 
   return (
     <div className="w-full bg-card text-card md:h-[550px]  col-span-9 gap-5 border border-border-primary md:pb-28 lg:pb-36 rounded-sm">
@@ -36,14 +26,13 @@ const Analytics = ({ analyticeData }) => {
           <span className="">Updated overview of your external test</span>
         </div>
         <div className="flex items-center gap-5 flex-wrap">
-          {[color_1,color_2,color_3,color_4].map((color,index) => (
+          {[color_1, color_2, color_3, color_4].map((color, index) => (
             <div key={color} className="flex items-center gap-2">
               <FaCircle
                 className={`text-md rounded-full`}
                 style={{
-                  color: color
+                  color: color,
                 }}
-                
               />
               <span className="text-primary">{orgName[index]}</span>
             </div>
