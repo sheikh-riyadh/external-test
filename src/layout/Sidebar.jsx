@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import PropTypes from "prop-types";
 import { FaArrowLeft, FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import { sidebar_data } from "../data/sidebar";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../store/features/user/userSlice";
+import only_head from "../assets/only-head.png";
+import eyes_off from "../assets/eyes_off.png";
 
 const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
   const [isOpen, setIsOpen] = useState(true);
   const dispatch = useDispatch();
+
+  const [isOff, setIsOff] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOff((prev) => !prev);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <aside
@@ -81,7 +91,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
               <div className="w-12 h-12">
                 <img
                   className="w-full h-full object-contain"
-                  src="/src/assets/only-head.png"
+                  src={!isOff ? only_head : eyes_off}
                   alt="user"
                 />
               </div>

@@ -6,6 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { user } = useGetUser();
 
   const location = useLocation();
+  console.log(user)
 
   if (user?._id) {
     return children;

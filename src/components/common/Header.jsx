@@ -1,9 +1,18 @@
 import { FaBars } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileSidebar from "../mobile/MobileSidebar";
+import only_head from "../../assets/only-head.png";
+import eyes_off from "../../assets/eyes_off.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOff, setIsOff] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOff((prev) => !prev);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <header className="w-full bg-card sticky top-0 flex items-center justify-between lg:justify-end p-3.5  z-30 border-b border-border-primary">
@@ -19,7 +28,7 @@ const Header = () => {
             <div className="w-10 h-10">
               <img
                 className="w-full h-full object-contain"
-                src="/src/assets/only-head.png"
+                src={!isOff ? only_head : eyes_off}
                 alt="user"
               />
             </div>

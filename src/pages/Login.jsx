@@ -5,6 +5,7 @@ import Input from "../components/common/Input";
 import SubmitButton from "../components/common/SubmitButton";
 import only_head from "../assets/only-head.png";
 import eyes_closed from "../assets/eyes-closed.png";
+import eyes_off from "../assets/eyes_off.png";
 import { useUserMutation } from "../store/services/userApi/auth_user_Api";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/features/user/userSlice";
@@ -13,6 +14,8 @@ import { useNavigate } from "react-router";
 import { useGetUser } from "../hooks/useGetUser";
 
 const Login = () => {
+  const [isOff, setIsOff] = useState(false);
+
   const { register, handleSubmit } = useForm();
   const [type, setType] = useState("text");
   const [userLogin, { isLoading }] = useUserMutation();
@@ -27,7 +30,7 @@ const Login = () => {
       dispatch(addUser(res?.data));
       navigate("/");
     } else {
-      toast.error(" credentials do not match", { id: "error" });
+      toast.error("redentials do not match", { id: "error" });
     }
   };
 
@@ -36,6 +39,13 @@ const Login = () => {
       navigate("/");
     }
   }, [navigate, user?._id]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOff((prev) => !prev);
+    }, 1200);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="h-svh relative">
@@ -47,10 +57,10 @@ const Login = () => {
           >
             <div className="w-24 h-24 border rounded-full flex items-center justify-center overflow-hidden relative">
               <img
-                className={`absolute w-full h-full object-fill transition-opacity duration-700 ${
+                className={`absolute w-full h-full object-contain p-1 transition-opacity duration-700 ${
                   type === "text" ? "opacity-100" : "opacity-0"
                 }`}
-                src={only_head}
+                src={!isOff ? only_head : eyes_off}
                 alt="bear"
               />
               <img
