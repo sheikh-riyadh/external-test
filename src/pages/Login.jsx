@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Input from "../components/common/Input";
@@ -10,7 +11,6 @@ import { useUserMutation } from "../store/services/userApi/auth_user_Api";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/features/user/userSlice";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
 import { useGetUser } from "../hooks/useGetUser";
 
 const Login = () => {
@@ -43,7 +43,7 @@ const Login = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsOff((prev) => !prev);
-    }, 1200);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 

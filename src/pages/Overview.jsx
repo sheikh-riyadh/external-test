@@ -22,10 +22,10 @@ const Overview = () => {
 
   const analytics = months.map((month) => ({
     name: month,
-    i: 0, // ibnsina
-    p: 0, // popular
-    a: 0, // asgarali
-    m: 0, // medinova
+    i: 0,
+    p: 0,
+    a: 0,
+    m: 0,
   }));
 
   data?.forEach((entry) => {
@@ -37,6 +37,7 @@ const Overview = () => {
       if (entry?.name === "medinova") monthObj.m++;
     }
   });
+
   return (
     <div className="flex flex-col gap-10">
       <span className="font-bold text-xl text-primary">Overview</span>
