@@ -6,7 +6,7 @@ export const medinovaApi = baseApi.injectEndpoints({
       query: (query) => ({
         url: `get-medinovatest?${query}`,
       }),
-      providesTags: ["medinova"],
+      providesTags: ["medinova","overview"],
     }),
     createMedinovatest: build.mutation({
       query: (data) => ({
@@ -14,7 +14,7 @@ export const medinovaApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["medinova"],
+      invalidatesTags: ["medinova","overview"],
     }),
     updateMedinovatest: build.mutation({
       query: (data) => ({
@@ -29,7 +29,7 @@ export const medinovaApi = baseApi.injectEndpoints({
         url: `delete-medinovatest/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["medinova"],
+      invalidatesTags: ["medinova","overview"],
     }),
   }),
 });

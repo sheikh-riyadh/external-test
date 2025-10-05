@@ -6,7 +6,7 @@ export const asgaraliApi = baseApi.injectEndpoints({
       query: (query) => ({
         url: `get-asgaralitest?${query}`,
       }),
-      providesTags: ["asgarali"],
+      providesTags: ["asgarali","overview"],
     }),
     createAsgaralitest: build.mutation({
       query: (data) => ({
@@ -14,7 +14,7 @@ export const asgaraliApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["asgarali"],
+      invalidatesTags: ["asgarali","overview"],
     }),
     updateAsgaralitest: build.mutation({
       query: (data) => ({
@@ -29,7 +29,7 @@ export const asgaraliApi = baseApi.injectEndpoints({
         url: `delete-asgaralitest/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["asgarali"],
+      invalidatesTags: ["asgarali","overview"],
     }),
   }),
 });

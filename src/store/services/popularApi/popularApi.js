@@ -7,7 +7,7 @@ export const popularApi = baseApi.injectEndpoints({
       query: (query) => ({
         url: `get-populartest?${query}`,
       }),
-      providesTags: ["popular"],
+      providesTags: ["popular","overview"],
     }),
     createPopulartest: build.mutation({
       query: (data) => ({
@@ -15,7 +15,7 @@ export const popularApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["popular"],
+      invalidatesTags: ["popular","overview"],
     }),
     updatePopulartest: build.mutation({
       query: (data) => ({
@@ -30,7 +30,7 @@ export const popularApi = baseApi.injectEndpoints({
         url: `delete-populartest/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["popular"],
+      invalidatesTags: ["popular","overview"],
     }),
   }),
 });

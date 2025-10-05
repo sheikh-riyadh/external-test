@@ -3,7 +3,6 @@ import { NavLink } from "react-router";
 import PropTypes from "prop-types";
 import { FaArrowLeft, FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import { sidebar_data } from "../data/sidebar";
-import person from "../assets/pd-person.jpg";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../store/features/user/userSlice";
 
@@ -78,11 +77,11 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
         </div>
         <div className="px-4 py-5 pb-7">
           <div>
-            <div className="flex gap-4 pb-5">
-              <div>
+            <div className="flex items-center gap-2 pb-5">
+              <div className="w-12 h-12">
                 <img
-                  className="w-12 h-12 rounded-full"
-                  src={person}
+                  className="w-full h-full object-contain"
+                  src="/src/assets/only-head.png"
                   alt="user"
                 />
               </div>
@@ -90,8 +89,7 @@ const Sidebar = ({ visibleArrow = true, setIsModalOpen = () => {} }) => {
                 className="text-primary"
                 style={{ display: isOpen ? "block" : "none" }}
               >
-                <h3 className="text-base font-semibold">Amanda</h3>
-                <p className="text-sm pt-2">Agant Account</p>
+                <h3 className="text-base font-semibold">Admin</h3>
               </div>
             </div>
             <div

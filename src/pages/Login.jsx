@@ -47,7 +47,7 @@ const Login = () => {
           >
             <div className="w-24 h-24 border rounded-full flex items-center justify-center overflow-hidden relative">
               <img
-                className={`absolute w-full h-full transition-opacity duration-700 ${
+                className={`absolute w-full h-full object-fill transition-opacity duration-700 ${
                   type === "text" ? "opacity-100" : "opacity-0"
                 }`}
                 src={only_head}

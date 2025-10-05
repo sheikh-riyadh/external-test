@@ -6,7 +6,7 @@ export const ibnsinaApi = baseApi.injectEndpoints({
       query: (query) => ({
         url: `get-ibnsinatest?${query}`,
       }),
-      providesTags: ["ibnsina"],
+      providesTags: ["ibnsina","overview"],
     }),
     createIbnsinatest: build.mutation({
       query: (data) => ({
@@ -14,7 +14,7 @@ export const ibnsinaApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["ibnsina"],
+      invalidatesTags: ["ibnsina","overview"],
     }),
     updateIbnsinatest: build.mutation({
       query: (data) => ({
@@ -29,7 +29,7 @@ export const ibnsinaApi = baseApi.injectEndpoints({
         url: `delete-ibnsinatest/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["ibnsina"],
+      invalidatesTags: ["ibnsina","overview"],
     }),
   }),
 });

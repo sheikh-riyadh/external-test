@@ -56,25 +56,25 @@ const Analytics = ({ analyticeData }) => {
             />
             <Bar
               name="Popular total test"
-              dataKey="pv"
+              dataKey="p"
               fill={`${color_2}`}
               barSize={10}
             />
             <Bar
               name="Ibn sina total test"
-              dataKey="uv"
+              dataKey="i"
               fill={`${color_1}`}
               barSize={10}
             />
             <Bar
               name="Asgar-ali total test"
-              dataKey="uv"
+              dataKey="a"
               fill={`${color_3}`}
               barSize={10}
             />
             <Bar
               name="Medinova total test"
-              dataKey="uv"
+              dataKey="m"
               fill={`${color_4}`}
               barSize={10}
             />
